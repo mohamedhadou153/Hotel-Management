@@ -1,0 +1,55 @@
+<h1 mat-dialog-title></h1>
+<!-- <button mat-button [mat-dialog-close]="" cdkFocusInitial><mat-icon>close</mat-icon>></button> -->
+<div mat-dialog-content>
+  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()"> 
+    
+
+    <mat-form-field appearance="fill">
+        <mat-label>Name of client</mat-label>
+        <mat-select formControlName="Name">
+          <mat-option  *ngFor="let client of clients" [value]="client.$key" >{{client.Id}} : {{client.Name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Start</mat-label>
+        <input matInput type="date" formControlName="Start">
+    </mat-form-field> 
+    <mat-form-field appearance="fill">
+        <mat-label>End</mat-label>
+        <input matInput type="date" formControlName="End">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label> Destination</mat-label>
+      <mat-select formControlName="Destination">
+          <mat-option  *ngFor="let destination of destinations" [value]="destination" >{{destination}}</mat-option>
+        </mat-select>   
+       </mat-form-field> 
+    <mat-form-field appearance="fill">
+        <mat-label>Type de chambre</mat-label>
+        <mat-select formControlName="Rec">
+            <mat-option  *ngFor="let chambre of chambres" [value]="chambre" >{{chambre}}</mat-option>
+          </mat-select>   
+         </mat-form-field>
+    <div>
+      <mat-label>Smoking :</mat-label>
+      <mat-radio-group aria-label="Select an option" formControlName="Smoking">
+        <mat-radio-button value="true">oui</mat-radio-button>
+        <mat-radio-button value="false">non</mat-radio-button>
+      </mat-radio-group>
+    </div><br>
+    <div>
+      <mat-label>Navette :</mat-label>
+      <mat-radio-group aria-label="Select an option" formControlName="Navette">
+        <mat-radio-button value="true">oui</mat-radio-button>
+        <mat-radio-button value="false">non</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    
+    <button mat-button color="primary">Enregistrer</button>
+    <button mat-button type="button" (click)="onNoClick()">Annuler</button>
+  </form>
+  <!-- <div mat-dialog-actions>
+  </div> -->
+</div>

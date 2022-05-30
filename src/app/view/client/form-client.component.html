@@ -1,0 +1,27 @@
+<h1 mat-dialog-title></h1>
+<!-- <button mat-button [mat-dialog-close]="" cdkFocusInitial><mat-icon>close</mat-icon>></button> -->
+<div mat-dialog-content>
+  <form [formGroup]="clientForm" (ngSubmit)="onSubmit()"> 
+    
+    
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="Name">
+    </mat-form-field> 
+    <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="Address">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>CNE</mat-label>
+        <input matInput formControlName="Id">
+    </mat-form-field>
+    
+    
+    <button mat-button color="primary">Enregistrer</button>
+    <button mat-button type="button" (click)="onNoClick()">Annuler</button>
+  </form>
+  <!-- <div mat-dialog-actions>
+  </div> -->
+</div>
