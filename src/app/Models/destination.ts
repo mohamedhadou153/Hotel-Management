@@ -1,1 +1,1 @@
-export type Destination = 'Agadir' | 'Marrakesh' | 'Tanger' |'Casablanca' | 'Rabat';
+export type Destination = 'Agadir' | 'Marrakesh' | 'Tanger' |'Casablanca' | 'Rabat'|'Tiznit';
