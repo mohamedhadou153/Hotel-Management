@@ -19,7 +19,7 @@ export interface DialogData {
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'Address', 'Id','Edit', 'Delete'];
+  displayedColumns: string[] = ['Name', 'Address', 'Id','phone','Edit', 'Delete'];
   dataSource!: MatTableDataSource<Client>;
   clients: Client[] = [];
   client!: Client;
@@ -130,6 +130,7 @@ export class NewClientComponent {
       Name: [''],
       Address: [''],
       Id: [''],
+      phone: [''],
     });
   }
   ResetForm() {

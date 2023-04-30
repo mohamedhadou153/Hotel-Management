@@ -20,6 +20,7 @@ export class ClientService {
       Name: client.Name,
       Address: client.Address,
       Id: client.Id,
+      phone: client.phone,
     });
   }
   // Fetch Single Question Object
@@ -38,6 +39,7 @@ export class ClientService {
       Name: client.Name,
       Address: client.Address,
       Id: client.Id,
+      phone: client.phone,
     });
   }
   // Delete Question Object

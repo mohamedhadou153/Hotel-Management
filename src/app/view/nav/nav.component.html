@@ -8,10 +8,11 @@
               <mat-icon>home</mat-icon> Home</a>
             <a mat-list-item routerLink="/client" routerLinkActive="list-item-active">
               <mat-icon>account_box</mat-icon> Client</a>
+              <a mat-list-item routerLink="/planeTicket" routerLinkActive="list-item-active">
+                <mat-icon>directions_car</mat-icon> Voitures</a>
             <a mat-list-item routerLink="/booking" routerLinkActive="list-item-active">
               <mat-icon>hotel </mat-icon> Booking </a>
-              <a mat-list-item routerLink="/planeTicket" routerLinkActive="list-item-active">
-                <mat-icon>airplanemode_active </mat-icon> Plane Ticket</a>
+              
           
           </mat-nav-list>
     </mat-sidenav>
@@ -19,7 +20,7 @@
       <!-- Start Toolbar -->
       <div class="app-toolbar-top">
         <!-- <app-toolbar [title]="urlFragments"></app-toolbar> -->
-        <mat-toolbar color="primary" role="heading" >
+        <mat-toolbar color="primary" role="heading" style="background:gray;">
             <mat-toolbar-row class="justify-content-between">
             <button mat-icon-button (click)="sidenav.toggle()">
               <mat-icon>menu</mat-icon>

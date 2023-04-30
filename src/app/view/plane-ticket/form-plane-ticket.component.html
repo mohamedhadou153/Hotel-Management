@@ -5,34 +5,32 @@
     
 
     <mat-form-field appearance="fill">
-        <mat-label>Name of client</mat-label>
-        <mat-select formControlName="Name">
-          <mat-option  *ngFor="let client of clients" [value]="client.$key" >{{client.Id}} : {{client.Name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    
-    
-    <mat-form-field appearance="fill">
-        <mat-label>Depart</mat-label>
-        <mat-select formControlName="Depart">
-     <mat-option  *ngFor="let destination of destinations" [value]="destination" >{{destination}}</mat-option>
-     </mat-select>
+      <mat-label>tyTpe</mat-label>
+      <mat-select formControlName="type">
+          <mat-option  *ngFor="let type of types" [value]="type" >{{type}}</mat-option>
+      </mat-select>   
   </mat-form-field> 
+    
     <mat-form-field appearance="fill">
-        <mat-label>Arrivee</mat-label>
-        <mat-select formControlName="Arrivee">
-         <mat-option  *ngFor="let destination of destinations" [value]="destination" >{{destination}}</mat-option>
-         </mat-select>
-    </mat-form-field>
-    <!-- Name Column -->
+      <mat-label>Marque</mat-label>
+      <input matInput formControlName="marque">
+  </mat-form-field> 
+
+  <mat-form-field appearance="fill">
+    <mat-label>Model</mat-label>
+    <input matInput formControlName="model">
+</mat-form-field> 
+      <mat-form-field appearance="fill">
+        <mat-label>Puissance</mat-label>
+        <input matInput formControlName="puissance">
+    </mat-form-field> 
+
     <mat-form-field appearance="fill">
-        <mat-label>Start</mat-label>
-        <input matInput type="date" formControlName="Start">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>End</mat-label>
-        <input matInput type="date" formControlName="End">
-    </mat-form-field>
+      <mat-label>prix_location</mat-label>
+      <input matInput formControlName="prix_localtion">
+  </mat-form-field> 
+ 
+
     <mat-form-field appearance="fill">
         <mat-label>Categorie</mat-label>
         <mat-select formControlName="Categorie">

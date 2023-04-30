@@ -20,12 +20,11 @@ export class PlaneTicketService {
 
   AddPlaneTicket(planeTicket: PlaneTicket) {
     this.planeTicketsRef.push({
-      Name: planeTicket.Name,
-      Depart:planeTicket.Depart,
-      Arrivee: planeTicket.Arrivee,
-      Start: planeTicket.Start,
-      End: planeTicket.End,
-      Prix: planeTicket.Prix,
+      type: planeTicket.type,
+      marque:planeTicket.marque,
+      modele: planeTicket.modele,
+      puissance: planeTicket.puissance,
+      prix_location: planeTicket.prix_location,
       Categorie: planeTicket.Categorie,
     });
   }
@@ -42,12 +41,11 @@ export class PlaneTicketService {
   // Update Question Object
   UpdatePlaneTicket(planeTicket: PlaneTicket) {
     this.planeTicketRef.update({
-      Name: planeTicket.Name,
-      Depart:planeTicket.Depart,
-      Arrivee: planeTicket.Arrivee,
-      Start: planeTicket.Start,
-      End: planeTicket.End,
-      Prix: planeTicket.Prix,
+      type: planeTicket.type,
+      marque:planeTicket.marque,
+      modele: planeTicket.modele,
+      puissance: planeTicket.puissance,
+      prix_location: planeTicket.prix_location,
       Categorie: planeTicket.Categorie,
     });
   }

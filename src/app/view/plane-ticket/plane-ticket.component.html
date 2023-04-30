@@ -24,43 +24,38 @@
             </ng-container> -->
         
             <!-- Progress Column -->
-            
-            <ng-container matColumnDef="Name">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </th>
-              <td mat-cell *matCellDef="let row"> {{getClient(row.Name)}} </td>
-            </ng-container>
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> type </th>
+              <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+          </ng-container>
         
             <!-- Name Column -->
-            <ng-container matColumnDef="Depart">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Depart </th>
-              <td mat-cell *matCellDef="let row"> {{row.Depart}} </td>
+            <ng-container matColumnDef="marque">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Marque </th>
+              <td mat-cell *matCellDef="let row"> {{row.marque}} </td>
             </ng-container>
-         <!-- Name Column -->
-         <ng-container matColumnDef="Arrivee">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Arrivee </th>
-          <td mat-cell *matCellDef="let row"> {{row.Arrivee}} </td>
-        </ng-container>
-         <!-- Name Column -->
-         <ng-container matColumnDef="Start">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Start </th>
-            <td mat-cell *matCellDef="let row"> {{row.Start}} </td>
-          </ng-container>
-       <!-- Name Column -->
-       <ng-container matColumnDef="End">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> End </th>
-        <td mat-cell *matCellDef="let row"> {{row.End}} </td>
-      </ng-container>
-        <!-- Fruit Column -->
+
+            <ng-container matColumnDef="modele">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Modele </th>
+              <td mat-cell *matCellDef="let row"> {{row.modele}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="puissance">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> puissance </th>
+              <td mat-cell *matCellDef="let row"> {{row.puissance}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="prix_location">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>prix_location </th>
+              <td mat-cell *matCellDef="let row"> {{row.prix_location}} </td>
+            </ng-container>
+     
         <ng-container matColumnDef="Categorie">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Categorie </th>
             <td mat-cell *matCellDef="let row"> {{row.Categorie}} </td>
         </ng-container>
         
-        <!-- Name Column -->
-        <ng-container matColumnDef="Prix">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Prix </th>
-          <td mat-cell *matCellDef="let row"> {{row.Prix}} </td>
-        </ng-container>
+        
         <ng-container matColumnDef="Edit">
               <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button> Edit </th>
               

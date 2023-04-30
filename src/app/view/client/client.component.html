@@ -42,6 +42,11 @@
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> CNE </th>
                 <td mat-cell *matCellDef="let row"> {{row.Id}} </td>
               </ng-container>
+
+              <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> number phone </th>
+                <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+              </ng-container>
   
             <ng-container matColumnDef="Edit">
               <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button> Edit </th>

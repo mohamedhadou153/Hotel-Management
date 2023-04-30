@@ -3,4 +3,5 @@ export interface Client {
     Name: string;
     Address: string;
     Id: string;
+    phone: number;
 }
