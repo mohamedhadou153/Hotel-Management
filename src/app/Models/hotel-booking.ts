@@ -1,16 +1,13 @@
-import { Destination } from "./destination";
+
 import { RoomType } from "./room-type";
 
 export interface HotelBooking {
     $key: string;
     Name:string;
-    RoomNumber: number;
+    voiture: string;
+    matricule:string;
     Start: Date;
     End: Date;
-    NuNight: number;
-    Rec: string;
-    Destination: Destination;
-    Smoking: boolean;
-    Navette: boolean;
+    nujours: number;
     Prix: number;
 }

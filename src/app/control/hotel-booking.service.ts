@@ -17,14 +17,11 @@ export class HotelBookingService {
   AddBooking(booking: HotelBooking) {
     this.bookingsRef.push({
       Name: booking.Name,
-      RoomNumber: booking.RoomNumber,
+      voiture: booking.voiture,
+      matricule:booking.matricule,
       Start: booking.Start,
       End: booking.End,
-      NuNight: booking.NuNight,
-      Rec: booking.Rec,
-      Destination:booking.Destination,
-      Smoking: booking.Smoking,
-      Navette: booking.Navette,
+      nujours: booking.nujours,
       Prix: booking.Prix,
     });
   }
@@ -42,14 +39,11 @@ export class HotelBookingService {
   UpdateBooking(booking: HotelBooking) {
     this.bookingRef.update({
       Name: booking.Name,
-      RoomNumber: booking.RoomNumber,
+      voiture: booking.voiture,
+      matricule:booking.matricule,
       Start: booking.Start,
       End: booking.End,
-      NuNight: booking.NuNight,
-      Rec: booking.Rec,
-      Destination:booking.Destination,
-      Smoking: booking.Smoking,
-      Navette: booking.Navette,
+      nujours: booking.nujours,
       Prix: booking.Prix,
     });
   }

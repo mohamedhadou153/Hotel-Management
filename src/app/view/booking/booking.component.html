@@ -40,32 +40,26 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header> End </th>
           <td mat-cell *matCellDef="let row"> {{row.End}} </td>
         </ng-container>
-          <!-- Name Column -->
-          <ng-container matColumnDef="Destination">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Destination </th>
-            <td mat-cell *matCellDef="let row"> {{row.Destination}} </td>
-          </ng-container>
+          
             <!-- Fruit Column -->
-            <ng-container matColumnDef="RoomNumber">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> N° Room </th>
-                <td mat-cell *matCellDef="let row"> {{row.RoomNumber}} </td>
-              </ng-container>
-              <ng-container matColumnDef="Rec">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type de chambre </th>
-                <td mat-cell *matCellDef="let row"> {{row.Rec}} </td>
-              </ng-container>
-              <ng-container matColumnDef="NuNight">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de nuit </th>
+            <ng-container matColumnDef="voiture">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Voiture </th>
+              <td mat-cell *matCellDef="let row"> {{getvoiture(row.marque)}} {{getvoiture(row.modele)}}</td>
+            </ng-container>
+              <!-- Fruit Column -->
+            <ng-container matColumnDef="matricule">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Voiture </th>
+              <td mat-cell *matCellDef="let row"> {{getvoiture(row.matricule)}}</td>
+            </ng-container>
+              <ng-container matColumnDef="nujours">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de jours </th>
                 <td mat-cell *matCellDef="let row"> {{row.NuNight}} </td>
               </ng-container>
               <ng-container matColumnDef="Prix">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Prix </th>
                 <td mat-cell *matCellDef="let row"> {{row.Prix}} </td>
               </ng-container>
-              <ng-container matColumnDef="Navette">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Navette </th>
-                <td mat-cell *matCellDef="let row"> {{row.Navette}} </td>
-              </ng-container>
+
   
             <ng-container matColumnDef="Edit">
               <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button> Edit </th>

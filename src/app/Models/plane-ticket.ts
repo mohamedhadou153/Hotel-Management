@@ -1,4 +1,4 @@
-import { Destination } from "./destination";
+
 
 export interface PlaneTicket {
     $key:string;
