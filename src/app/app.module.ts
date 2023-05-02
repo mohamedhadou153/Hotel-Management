@@ -38,7 +38,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { NavComponent } from './view/nav/nav.component';
 import { HomeComponent } from './view/home/home.component';
-import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane/plane-ticket.component';
+import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane-ticket/plane-ticket.component';
 
 
 @NgModule({
