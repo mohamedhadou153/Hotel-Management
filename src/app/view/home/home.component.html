@@ -10,8 +10,14 @@
                 <h2>Bienvenue Sur Votre Application de Gestion</h2>
                 <p>à travers notre application vous aurez la capabilité de gérer la totalité des opération de vos Agences.<br>
                     Nous mettons à votre disposition les meilleures technologies avancées afin de vous faciliter votre vie de gestion </p>
-                <button type = "button" class = "head-btn" [routerLink]="'/client'">Commencer</button>
+                    <div style="height:110px; display: flex;justify-content: center;">
+                        <button type = "button" class = "head-btn" [routerLink]="'/client'" style="margin: 30px;">Gestion de clients</button>
+                        <button type = "button" class = "head-btn" [routerLink]="'/booking'"style="margin: 30px;">Reservations</button>
+                        <button type = "button" class = "head-btn" [routerLink]="'/plane'"style="margin: 30px;">Gestion de vehicule</button>
+                    </div>
+            
             </div>
+            
         </header>
         <!-- end of header -->
     </body>

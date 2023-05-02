@@ -9,7 +9,7 @@ import { HotelBooking } from 'src/app/Models/hotel-booking';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ClientService } from 'src/app/control/client.service'; 
 import { Client } from 'src/app/Models/client';
-import { PlaneTicket } from 'src/app/Models/plane-ticket';
+import { PlaneTicket } from 'src/app/Models/plane';
 import { PlaneTicketService } from 'src/app/control/plane-ticket.service';
 
 

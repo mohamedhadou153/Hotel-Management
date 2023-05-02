@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/compat/database';
-import { PlaneTicket } from '../Models/plane-ticket';
+import { PlaneTicket } from '../Models/plane';
 
 
 

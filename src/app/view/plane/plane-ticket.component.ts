@@ -6,7 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router ,ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { PlaneTicketService } from 'src/app/control/plane-ticket.service';
-import { PlaneTicket} from 'src/app/Models/plane-ticket';
+import { PlaneTicket} from 'src/app/Models/plane';
 
 
 
