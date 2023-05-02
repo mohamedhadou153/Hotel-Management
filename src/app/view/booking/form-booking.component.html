@@ -22,8 +22,8 @@
     
     <mat-form-field appearance="fill">
         <mat-label>Voiture</mat-label>
-        <mat-select formControlName="Rec">
-            <mat-option  *ngFor="let voiture of planeTickets" [value]="voiture.$key" >{{voiture.marque}} : {{voiture.modele}}</mat-option>
+        <mat-select formControlName="voiture">
+            <mat-option  *ngFor="let voiture of planetickets" [value]="voiture.$key" >{{voiture.marque}} : {{voiture.modele}}</mat-option>
           </mat-select>   
          </mat-form-field>
   

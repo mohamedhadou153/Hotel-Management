@@ -30,12 +30,12 @@ export class PlaneTicketService {
   }
   // Fetch Single Question Object
   GetPlaneTicket(id: string) {
-    this.planeTicketRef = this.db.object('planeTickets/' + id);
+    this.planeTicketRef = this.db.object('Voitures/' + id);
     return this.planeTicketRef;
   }
   // Fetch Questions List
   GetPlaneTicketList() {
-    this.planeTicketsRef = this.db.list('planeTickets');
+    this.planeTicketsRef = this.db.list('Voitures');
     return this.planeTicketsRef;
   }
   // Update Question Object
@@ -51,7 +51,7 @@ export class PlaneTicketService {
   }
   // Delete Question Object
   DeletePlaneTicket(id: string) {
-    this.planeTicketRef = this.db.object('planeTickets/' + id);
+    this.planeTicketRef = this.db.object('Voitures/' + id);
     this.planeTicketRef.remove();
   }
 

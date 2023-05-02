@@ -11,14 +11,14 @@ import { ClientService } from 'src/app/control/client.service';
 import { Client } from 'src/app/Models/client';
 import { PlaneTicket } from 'src/app/Models/plane-ticket';
 import { PlaneTicketService } from 'src/app/control/plane-ticket.service';
-import { RoomType } from 'src/app/Models/room-type';
+
 
 
 export interface DialogData {
   $key: string;
   new: boolean;
   clients: Client[];
-  planeTickets: PlaneTicket[];
+  planetickets: PlaneTicket[];
 }
 
 @Component({
@@ -28,7 +28,7 @@ export interface DialogData {
 })
 export class BookingComponent implements OnInit {
 
-  displayedColumns: string[] = ['Name', 'Start', 'End','voiture','matricule','nujours','Prix','Edit', 'Delete'];
+  displayedColumns: string[] = ['Name','voiture','prixj', 'Start', 'End','nujours','Prix','Edit', 'Delete'];
   dataSource!: MatTableDataSource<HotelBooking>;
 
   bookings: HotelBooking[]=[];
@@ -96,24 +96,23 @@ export class BookingComponent implements OnInit {
   }
   
   deletebooking(booking: HotelBooking){
-    this.bookingService.DeleteBooking(this.booking.$key);
+    this.bookingService.DeleteBooking(booking.$key);
   }
 
   openDialog(): void {
-    this.onDialog({clients: this.clients, new: true});
+    this.onDialog({clients: this.clients,planetickets :this.planetickets, new: true});
     console.log(this.clients);
-    this.onDialog({planetickets: this.planetickets, new: true});
-    console.log(this.planetickets);
+    
   }
 
   editDialog(key: string): void {
     let q = this.bookings.find(item => item.$key === key) as HotelBooking;
-    this.onDialog({$key: q.$key, clients: this.clients, new: false,planetickets: this.planetickets});
+    this.onDialog({$key: q.$key, clients: this.clients,planetickets: this.planetickets, new: false});
   }
 
   onDialog(data: any): void {
     const dialogRef = this.dialog.open(NewBookingComponent, {
-      width: '20rem',height: '30rem',
+      width: '20rem',height: '25rem',
       data: data,
     });
 
@@ -125,7 +124,14 @@ export class BookingComponent implements OnInit {
     return this.clients.find(c => c.$key === key)?.Name;
   }
   getvoiture(key: string) : string | undefined{
-    return this.planetickets.find(c => c.$key === key)?.marque;
+    return this.planetickets.find(c => c.$key === key)?.marque+' ' + this.planetickets.find(c => c.$key === key)?.modele;
+  }
+  getprixj(key: string) : number | undefined{
+    return this.planetickets.find(c => c.$key === key)?.prix_location;
+  }
+  getprix(key: string ,prixj:number) : number | undefined{
+    let a  = this.planetickets.find(c => c.$key === key)?.prix_location||0; 
+    return (a * prixj);
   }
 }
 @Component({
@@ -136,7 +142,7 @@ export class BookingComponent implements OnInit {
 export class NewBookingComponent {
   public bookingForm!: FormGroup;
   clients: Client[] = [];
-  planeTickets: PlaneTicket[] = [];
+  planetickets: PlaneTicket[] = [];
   booking!: HotelBooking;
 
 
@@ -154,8 +160,8 @@ export class NewBookingComponent {
         let test = {Name: this.booking.Name,
                     Start: this.booking.Start,
                     End: this.booking.End,
-                    matricule: this.booking.matricule,
                     voiture: this.booking.voiture,
+
 
                       };
         this.bookingForm.setValue(test);
@@ -165,13 +171,14 @@ export class NewBookingComponent {
     console.log('client' + this.data.clients);
     this.bookingService.GetBookingList();
     this.onBookingForm();
+    this.planetickets = this.data.planetickets;
+    console.log('planticket' + this.data.planetickets);
 
-
-    this.planeTickets = this.data.planeTickets;
-    console.log('planticket' + this.data.planeTickets);
+    
     this.bookingService.GetBookingList();
     this.onBookingForm();
   }
+  
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -189,9 +196,9 @@ export class NewBookingComponent {
     console.log(this.booking);
     this.booking.nujours = this.nbNuits(this.booking.Start, this.booking.End);
     console.log(this.booking);
-    this.booking.Prix = this.calculerPrix(this.booking.nujours);
-    console.log(this.booking);
-    //this.booking.voiture = this.voiture();
+
+
+    
 
     this.bookingService.AddBooking(this.booking);
   }
@@ -200,9 +207,7 @@ export class NewBookingComponent {
     console.log(this.booking);
     this.booking.nujours = this.nbNuits(this.booking.Start, this.booking.End);
     console.log(this.booking);
-    this.booking.Prix = this.calculerPrix(this.booking.nujours);
-    console.log(this.booking);
-   
+
     this.bookingService.UpdateBooking(this.booking);
   }
   onBookingForm() {
@@ -210,8 +215,8 @@ export class NewBookingComponent {
       Name: [''],
       Start: [''],
       End: [''],
-      matricule:[''],
       voiture:[''],
+      prixj:[''],
       nujours:[''],
 
     });
@@ -224,13 +229,6 @@ export class NewBookingComponent {
     return (new Date(end).getTime() - new Date(start).getTime())/(1000 * 60 * 60 * 24);
   }
 
-  calculerPrix(nbNuits: number) {
-    let prix: number;
-    prix = nbNuits* 100 ;
-    return prix;
-  }
-  voiture(){
-    return Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-
-  }
+  
+ 
 }

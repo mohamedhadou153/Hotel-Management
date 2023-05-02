@@ -133,7 +133,7 @@ export class NewPlaneTicketComponent {
   }
   onAddChoix(): void {
     console.log(this.planeTicketForm.value);
-    this.planeTicketService.AddPlaneTicket(this.planeTicket);
+    this.planeTicketService.AddPlaneTicket(this.planeTicketForm.value);
   }
   onPlaneTicketForm() {
     this.planeTicketForm = this.fb.group({

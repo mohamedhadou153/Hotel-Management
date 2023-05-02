@@ -44,20 +44,22 @@
             <!-- Fruit Column -->
             <ng-container matColumnDef="voiture">
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Voiture </th>
-              <td mat-cell *matCellDef="let row"> {{getvoiture(row.marque)}} {{getvoiture(row.modele)}}</td>
+              <td mat-cell *matCellDef="let row"> {{getvoiture(row.voiture)}}</td>
             </ng-container>
               <!-- Fruit Column -->
-            <ng-container matColumnDef="matricule">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header>Voiture </th>
-              <td mat-cell *matCellDef="let row"> {{getvoiture(row.matricule)}}</td>
-            </ng-container>
+            
               <ng-container matColumnDef="nujours">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de jours </th>
-                <td mat-cell *matCellDef="let row"> {{row.NuNight}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.nujours}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="prixj">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>prix par jour </th>
+                <td mat-cell *matCellDef="let row"> {{getprixj(row.voiture)}}</td>
               </ng-container>
               <ng-container matColumnDef="Prix">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Prix </th>
-                <td mat-cell *matCellDef="let row"> {{row.Prix}} </td>
+                <td mat-cell *matCellDef="let row"> {{getprix(row.voiture,row.nujours)}} Dhs</td>
               </ng-container>
 
   

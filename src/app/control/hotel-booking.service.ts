@@ -18,21 +18,20 @@ export class HotelBookingService {
     this.bookingsRef.push({
       Name: booking.Name,
       voiture: booking.voiture,
-      matricule:booking.matricule,
       Start: booking.Start,
       End: booking.End,
       nujours: booking.nujours,
-      Prix: booking.Prix,
+
     });
   }
   // Fetch Single Question Object
   GetBooking(id: string) {
-    this.bookingRef = this.db.object('bookings/' + id);
+    this.bookingRef = this.db.object('Reservations/' + id);
     return this.bookingRef;
   }
   // Fetch Questions List
   GetBookingList() {
-    this.bookingsRef = this.db.list('bookings');
+    this.bookingsRef = this.db.list('Reservations');
     return this.bookingsRef;
   }
   // Update Question Object
@@ -40,16 +39,14 @@ export class HotelBookingService {
     this.bookingRef.update({
       Name: booking.Name,
       voiture: booking.voiture,
-      matricule:booking.matricule,
       Start: booking.Start,
       End: booking.End,
       nujours: booking.nujours,
-      Prix: booking.Prix,
     });
   }
   // Delete Question Object
   DeleteBooking(id: string) {
-    this.bookingRef = this.db.object('bookings/' + id);
+    this.bookingRef = this.db.object('Reservations/' + id);
     this.bookingRef.remove();
   }
 
