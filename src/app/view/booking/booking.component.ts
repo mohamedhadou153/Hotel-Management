@@ -28,7 +28,7 @@ export interface DialogData {
 })
 export class BookingComponent implements OnInit {
 
-  displayedColumns: string[] = ['Name','voiture','prixj', 'Start', 'End','nujours','Prix','Edit', 'Delete'];
+  displayedColumns: string[] = ['Name','voiture','prixj', 'Start', 'End','nujours','Prix','Edit', 'Delete','Facture'];
   dataSource!: MatTableDataSource<HotelBooking>;
 
   bookings: HotelBooking[]=[];

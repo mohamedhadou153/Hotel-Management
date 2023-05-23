@@ -1,0 +1,105 @@
+
+    <body>
+        <div id="content" #content>
+        <header>
+            <h1>Contrat</h1>
+            <address data-prefix>
+                <p>Agadir Maroc</p>
+                <p>Université Ibn Zohr</p>
+                <p>Faculté des Sciences<br>Département Informatique</p>
+                <p>BP 8106 - Cité Dakhla Agadir <br> Tel: 05 28 22 09 57</p>
+            </address>
+            <address class="addd" data-prefix>
+                <img src="assets/img/aze.png" alt="logo" style="height:100px;width:100%;margin-top:-8px;">
+                
+            </address>
+           
+        </header>
+        <aside>
+            <h1><span data-prefix>Merci de choisir notre agence.</span></h1>
+            
+        </aside>
+        <article>
+            <address data-prefix>
+                <p>{{getClient(booking.Name)}}</p>
+                <p>{{getClienti(booking.Name)}}</p>
+                <p>{{getClienta(booking.Name)}}</p>
+                <p>{{getClientp(booking.Name)}}</p>
+            </address>
+            <table class="meta">
+                
+                <tr>
+                    <th><span data-prefix>Date-depart</span></th>
+                    <td><span data-prefix>{{booking.Start}}</span></td>
+                </tr>
+                <tr>
+                    <th><span data-prefix>date-retour</span></th>
+                    <td><span id="prefix" data-prefix>{{booking.End}}</span></td>
+                </tr>
+            </table>
+            <table class="inventory">
+                <thead>
+                    <tr>
+                       
+                        <th><span data-prefix>Voitures</span></th>
+                        <th><span data-prefix>Type</span></th>
+                        <th><span data-prefix>puissance</span></th>
+                        <th><span data-prefix>categorie</span></th>
+                       
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       
+                        <td><span data-prefix>{{getvoiture(booking.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoituret(booking.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoiturep(booking.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoiturec(booking.voiture)}}</span></td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <table class="balance">
+                <tr>
+                    <th><span data-prefix>Nombre de jours</span></th>
+                    <td><span data-prefix>{{booking.nujours}}</span></td>
+                </tr>
+                <tr>
+                    <th><span data-prefix>Prix par jour</span></th>
+                    <td><span data-prefix>{{getprixj(booking.voiture)}}</span></td>
+                </tr>
+                <tr>
+                    <th><span data-prefix>Total</span></th>
+                    <td><span data-prefix>{{getprix(booking.voiture,booking.nujours)}} Dhs</span></td>
+                </tr>
+                <br><br>
+            </table>
+            <br><br>
+
+            <table class="inventory">
+                <thead>
+                    <tr>
+                        <th><span data-prefix>Client </span></th>
+                        <th><span data-prefix>Agence</span></th>
+                        
+                    </tr>
+                </thead>
+                <tbody style="height: 100px;">
+                    <tr>
+                        <td><span data-prefix>{{getClient(booking.Name)}} // {{getClienti(booking.Name)}}</span></td>
+                        <td><span data-prefix>{{getDate()|date:'yyyy-MM-dd // hh--mm--ss'}}</span></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+       
+        <img src="assets/img/abc.png" alt="conseil" style="height:100px;width:100%">
+    </div>
+    <div style="display: flex;justify-content: center;">
+        <button (click)="makepdf()" style="background-color: grren; width: 100px;" onclick="pageprint()">download</button>
+    </div>
+    
+</body>
+

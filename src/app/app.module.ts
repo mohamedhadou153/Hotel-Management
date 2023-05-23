@@ -38,7 +38,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { NavComponent } from './view/nav/nav.component';
 import { HomeComponent } from './view/home/home.component';
+import { FactureComponent } from './view/Facture/facture.component';
 import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane-ticket/plane-ticket.component';
+
 
 
 @NgModule({
@@ -52,6 +54,7 @@ import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane-ticke
     NewBookingComponent,
     PlaneTicketComponent,
     NewPlaneTicketComponent ,
+    FactureComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane-ticke
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     MatTooltipModule,
+
     
   ],
   providers: [],

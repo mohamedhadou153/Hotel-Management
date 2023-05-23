@@ -64,22 +64,32 @@
 
   
             <ng-container matColumnDef="Edit">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button> Edit </th>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button style="width:70px;padding: 15px ;"> Edit </th>
               
-              <td mat-cell *matCellDef="let row">
+              <td mat-cell *matCellDef="let row"  style="width:70px;padding-left:15px;">
                 <button mat-mini-fab color="accent" (click)="editDialog(row.$key)">
                   <mat-icon>edit</mat-icon>
                 </button>
               </td>
             </ng-container>
+
+          
             
             <!-- Delete -->
             <ng-container matColumnDef="Delete">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button> Delete </th>
-              <td mat-cell *matCellDef="let row">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button style="width:70px;padding: 15px ;"> Delete </th>
+              <td mat-cell *matCellDef="let row"  style="width:70px;padding-left:15px;">
                 <button mat-mini-fab color="warn" (click)="deletebooking(row)">
                   
                   <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="Facture">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header mat-button style="width:70px;padding: 15px ;"> Facture </th> 
+              <td mat-cell *matCellDef="let row"  style="width:70px;padding-left:15px;">
+                <button mat-mini-fab style="background-color: blue;color: azure;" [routerLink]="['/Facture', row.$key]">
+                  <mat-icon>print</mat-icon>
                 </button>
               </td>
             </ng-container>
