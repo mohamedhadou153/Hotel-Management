@@ -21,20 +21,20 @@
         </aside>
         <article>
             <address data-prefix>
-                <p>{{getClient(booking.Name)}}</p>
-                <p>{{getClienti(booking.Name)}}</p>
-                <p>{{getClienta(booking.Name)}}</p>
-                <p>{{getClientp(booking.Name)}}</p>
+                <p>{{getClient(reservation.Name)}}</p>
+                <p>{{getClienti(reservation.Name)}}</p>
+                <p>{{getClienta(reservation.Name)}}</p>
+                <p>{{getClientp(reservation.Name)}}</p>
             </address>
             <table class="meta">
                 
                 <tr>
                     <th><span data-prefix>Date-depart</span></th>
-                    <td><span data-prefix>{{booking.Start}}</span></td>
+                    <td><span data-prefix>{{reservation.Start}}</span></td>
                 </tr>
                 <tr>
                     <th><span data-prefix>date-retour</span></th>
-                    <td><span id="prefix" data-prefix>{{booking.End}}</span></td>
+                    <td><span id="prefix" data-prefix>{{reservation.End}}</span></td>
                 </tr>
             </table>
             <table class="inventory">
@@ -52,10 +52,10 @@
                 <tbody>
                     <tr>
                        
-                        <td><span data-prefix>{{getvoiture(booking.voiture)}}</span></td>
-                        <td><span data-prefix>{{getvoituret(booking.voiture)}}</span></td>
-                        <td><span data-prefix>{{getvoiturep(booking.voiture)}}</span></td>
-                        <td><span data-prefix>{{getvoiturec(booking.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoiture(reservation.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoituret(reservation.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoiturep(reservation.voiture)}}</span></td>
+                        <td><span data-prefix>{{getvoiturec(reservation.voiture)}}</span></td>
 
                     </tr>
                 </tbody>
@@ -63,15 +63,15 @@
             <table class="balance">
                 <tr>
                     <th><span data-prefix>Nombre de jours</span></th>
-                    <td><span data-prefix>{{booking.nujours}}</span></td>
+                    <td><span data-prefix>{{reservation.nujours}}</span></td>
                 </tr>
                 <tr>
                     <th><span data-prefix>Prix par jour</span></th>
-                    <td><span data-prefix>{{getprixj(booking.voiture)}}</span></td>
+                    <td><span data-prefix>{{getprixj(reservation.voiture)}}</span></td>
                 </tr>
                 <tr>
                     <th><span data-prefix>Total</span></th>
-                    <td><span data-prefix>{{getprix(booking.voiture,booking.nujours)}} Dhs</span></td>
+                    <td><span data-prefix>{{getprix(reservation.voiture,reservation.nujours)}} Dhs</span></td>
                 </tr>
                 <br><br>
             </table>
@@ -87,7 +87,7 @@
                 </thead>
                 <tbody style="height: 100px;">
                     <tr>
-                        <td><span data-prefix>{{getClient(booking.Name)}} // {{getClienti(booking.Name)}}</span></td>
+                        <td><span data-prefix>{{getClient(reservation.Name)}} // {{getClienti(reservation.Name)}}</span></td>
                         <td><span data-prefix>{{getDate()|date:'yyyy-MM-dd // hh--mm--ss'}}</span></td>
                         
                     </tr>

@@ -5,8 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router ,ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { PlaneTicketService } from 'src/app/control/plane-ticket.service';
-import { PlaneTicket} from 'src/app/Models/plane-ticket';
+import { voitureService } from 'src/app/control/voiture.service';
+import { voiture} from 'src/app/Models/voiture';
 
 
 
@@ -15,15 +15,15 @@ export interface DialogData {
   new: boolean;
 }
 @Component({
-  selector: 'app-plane-ticket',
-  templateUrl: './plane-ticket.component.html',
-  styleUrls: ['./plane-ticket.component.css']
+  selector: 'app-voiture',
+  templateUrl: './voiture.component.html',
+  styleUrls: ['./voiture.component.css']
 })
-export class PlaneTicketComponent implements OnInit {
+export class voitureComponent implements OnInit {
   displayedColumns: string[] = ['type', 'marque', 'modele','puissance', 'prix_location','Categorie','Edit', 'Delete'];
-  dataSource!: MatTableDataSource<PlaneTicket>;
-  planeTickets: PlaneTicket[]=[];
-  planeTicket!: PlaneTicket;
+  dataSource!: MatTableDataSource<voiture>;
+  voitures: voiture[]=[];
+  voiture!: voiture;
 
 
 
@@ -32,24 +32,24 @@ export class PlaneTicketComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   constructor(
-    private planeTicketService: PlaneTicketService,
+    private voitureService: voitureService,
     private route: ActivatedRoute,
     public dialog: MatDialog,
   
   ) {
-    this.dataSource = new MatTableDataSource(this.planeTickets);
+    this.dataSource = new MatTableDataSource(this.voitures);
 
    }
 
   ngOnInit(): void {
-    this.planeTicketService.GetPlaneTicketList().snapshotChanges().subscribe(data => {
-      this.planeTickets = [];
+    this.voitureService.GetvoitureList().snapshotChanges().subscribe(data => {
+      this.voitures = [];
       data.forEach(item => { 
-        this.planeTicket = item.payload.toJSON() as PlaneTicket;
-        this.planeTicket.$key = item.key!;
-        this.planeTickets.push(this.planeTicket);
+        this.voiture = item.payload.toJSON() as voiture;
+        this.voiture.$key = item.key!;
+        this.voitures.push(this.voiture);
       })
-      this.dataSource.data = this.planeTickets;
+      this.dataSource.data = this.voitures;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
@@ -68,8 +68,8 @@ export class PlaneTicketComponent implements OnInit {
     }
   }
 
-  deletePlaneTicket(planeTicket: PlaneTicket){
-    this.planeTicketService.DeletePlaneTicket(this.planeTicket.$key);
+  deletevoiture(voiture: voiture){
+    this.voitureService.Deletevoiture(this.voiture.$key);
   }
 
   openDialog(): void {
@@ -77,12 +77,12 @@ export class PlaneTicketComponent implements OnInit {
   }
 
   editDialog(key: string): void {
-    let q = this.planeTickets.find(item => item.$key === key) as PlaneTicket;
+    let q = this.voitures.find(item => item.$key === key) as voiture;
     this.onDialog({$key: q.$key, new: false});
   }
 
   onDialog(data: any): void {
-    const dialogRef = this.dialog.open(NewPlaneTicketComponent, {
+    const dialogRef = this.dialog.open(NewvoitureComponent, {
       width: '20rem',height: '30rem',
       data: data,
     });
@@ -94,30 +94,30 @@ export class PlaneTicketComponent implements OnInit {
   
 }
 @Component({
-  selector: 'form-plane-Ticket',
-  templateUrl: 'form-plane-Ticket.component.html',
-  styleUrls: ['./plane-ticket.component.css'],
+  selector: 'form-voiture',
+  templateUrl: 'form-voiture.component.html',
+  styleUrls: ['./voiture.component.css'],
 })
-export class NewPlaneTicketComponent {
-  public planeTicketForm!: FormGroup;
+export class NewvoitureComponent {
+  public voitureForm!: FormGroup;
   categories: string []= ['essence' , 'diesel']  ; 
   types: string []= ['sedan' , 'hatchback','supercar' , 'coupe','pickup' , 'cabriolet']  ; 
-  planeTicket!: PlaneTicket;
+  voiture!: voiture;
 
   constructor(
-    public dialogRef: MatDialogRef<NewPlaneTicketComponent>,
+    public dialogRef: MatDialogRef<NewvoitureComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private planeTicketService: PlaneTicketService,
+    private voitureService: voitureService,
     public fb: FormBuilder,
   ) {}
 
   ngOnInit(): void {
     if(!this.data.new){
-      this.planeTicketService.GetPlaneTicket(this.data.$key).valueChanges().subscribe(item => this.planeTicketForm.setValue(item));
+      this.voitureService.Getvoiture(this.data.$key).valueChanges().subscribe(item => this.voitureForm.setValue(item));
        
     }
-    this.planeTicketService.GetPlaneTicketList();
-    this.onPlaneTicketForm();
+    this.voitureService.GetvoitureList();
+    this.onvoitureForm();
   }
   onNoClick(): void {
     this.dialogRef.close();
@@ -127,16 +127,16 @@ export class NewPlaneTicketComponent {
       this.onAddChoix();
       this.ResetForm();
     }else{
-      this.planeTicketService.UpdatePlaneTicket(this.planeTicketForm.value);
+      this.voitureService.Updatevoiture(this.voitureForm.value);
       this.onNoClick();
     }
   }
   onAddChoix(): void {
-    console.log(this.planeTicketForm.value);
-    this.planeTicketService.AddPlaneTicket(this.planeTicketForm.value);
+    console.log(this.voitureForm.value);
+    this.voitureService.Addvoiture(this.voitureForm.value);
   }
-  onPlaneTicketForm() {
-    this.planeTicketForm = this.fb.group({
+  onvoitureForm() {
+    this.voitureForm = this.fb.group({
       type: [''],
       marque: [''],
       modele: [''],
@@ -147,7 +147,7 @@ export class NewPlaneTicketComponent {
     });
   }
   ResetForm() {
-    this.planeTicketForm.reset();
+    this.voitureForm.reset();
   }
 
  

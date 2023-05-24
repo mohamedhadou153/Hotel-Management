@@ -5,12 +5,12 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router ,ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { HotelBookingService } from 'src/app/control/hotel-booking.service';
-import { HotelBooking } from 'src/app/Models/hotel-booking';
+import { reservationService } from 'src/app/control/reservation.service';
+import { reservation } from 'src/app/Models/reservation';
 import { ClientService } from 'src/app/control/client.service'; 
 import { Client } from 'src/app/Models/client';
-import { PlaneTicket } from 'src/app/Models/plane-ticket';
-import { PlaneTicketService } from 'src/app/control/plane-ticket.service';
+import { voiture } from 'src/app/Models/voiture';
+import { voitureService } from 'src/app/control/voiture.service';
 import {jsPDF} from 'jspdf';
 
 
@@ -34,18 +34,18 @@ export class FactureComponent implements OnInit {
 
   key: any;
   
-  dataSource!: MatTableDataSource<HotelBooking>;
+  dataSource!: MatTableDataSource<reservation>;
 
-  bookings: HotelBooking[]=[];
-  booking!: HotelBooking;
+  reservations: reservation[]=[];
+  reservation!: reservation;
  
 
 
   clients: Client[] = [];
   client!: Client;
   
-  planetickets: PlaneTicket[] = [];
-  planeticket!: PlaneTicket;
+  voitures: voiture[] = [];
+  voiture!: voiture;
 
   
   @ViewChild(MatPaginator)
@@ -54,23 +54,23 @@ export class FactureComponent implements OnInit {
   sort!: MatSort;
  
 
-  constructor(private bookingService: HotelBookingService,
+  constructor(private reservationService: reservationService,
     private activatedRoute: ActivatedRoute,
     private clientService: ClientService,
-    private planeTicketService: PlaneTicketService,
+    private voitureService: voitureService,
   ) {
-    this.dataSource = new MatTableDataSource(this.bookings);
+    this.dataSource = new MatTableDataSource(this.reservations);
   }
 
     ngOnInit(): void {
-      this.bookingService.GetBookingList().snapshotChanges().subscribe(data => {
-        this.bookings = [];
+      this.reservationService.GetreservationList().snapshotChanges().subscribe(data => {
+        this.reservations = [];
         data.forEach(item => { 
-          this.booking = item.payload.toJSON() as HotelBooking;
-          this.booking.$key = item.key!;
-          this.bookings.push(this.booking);
+          this.reservation = item.payload.toJSON() as reservation;
+          this.reservation.$key = item.key!;
+          this.reservations.push(this.reservation);
         })
-        this.dataSource.data = this.bookings;
+        this.dataSource.data = this.reservations;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       })
@@ -83,18 +83,18 @@ export class FactureComponent implements OnInit {
           this.clients.push(this.client);
         })
       })
-      this.planeTicketService.GetPlaneTicketList().snapshotChanges().subscribe(data => {
-        this.planetickets = [];
+      this.voitureService.GetvoitureList().snapshotChanges().subscribe(data => {
+        this.voitures = [];
         data.forEach(item => { 
-          this.planeticket = item.payload.toJSON() as PlaneTicket;
-          this.planeticket.$key = item.key!;
-          this.planetickets.push(this.planeticket);
+          this.voiture = item.payload.toJSON() as voiture;
+          this.voiture.$key = item.key!;
+          this.voitures.push(this.voiture);
         })
       })
 
       this.key = this.activatedRoute.snapshot.paramMap.get('key');
-      this.bookingService.GetBooking(this.key).valueChanges().subscribe(item => {
-        this.booking = item as HotelBooking;
+      this.reservationService.Getreservation(this.key).valueChanges().subscribe(item => {
+        this.reservation = item as reservation;
        
     })
   }
@@ -113,22 +113,22 @@ export class FactureComponent implements OnInit {
         return this.clients.find(c => c.$key === key)?.Id;
       }
       getvoiture(key: string) : string | undefined{
-        return this.planetickets.find(c => c.$key === key)?.marque+' ' + this.planetickets.find(c => c.$key === key)?.modele;
+        return this.voitures.find(c => c.$key === key)?.marque+' ' + this.voitures.find(c => c.$key === key)?.modele;
       }
       getvoiturep(key: string) : number | undefined{
-        return  this.planetickets.find(c => c.$key === key)?.puissance;
+        return  this.voitures.find(c => c.$key === key)?.puissance;
       }
       getvoiturec(key: string) : string | undefined{
-        return this.planetickets.find(c => c.$key === key)?.Categorie;
+        return this.voitures.find(c => c.$key === key)?.Categorie;
       }
       getvoituret(key: string) : string | undefined{
-        return this.planetickets.find(c => c.$key === key)?.type;
+        return this.voitures.find(c => c.$key === key)?.type;
       }
       getprixj(key: string) : number | undefined{
-        return this.planetickets.find(c => c.$key === key)?.prix_location;
+        return this.voitures.find(c => c.$key === key)?.prix_location;
       }
       getprix(key: string ,prixj:number) : number | undefined{
-        let a  = this.planetickets.find(c => c.$key === key)?.prix_location||0; 
+        let a  = this.voitures.find(c => c.$key === key)?.prix_location||0; 
         return (a * prixj);
       }
       getDate(){

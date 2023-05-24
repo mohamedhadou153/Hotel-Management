@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClientComponent, NewClientComponent } from './view/client/client.component';
-import { BookingComponent , NewBookingComponent} from './view/booking/booking.component';
+import { reservationComponent , NewreservationComponent} from './view/reservation/reservation.component';
 
 
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -39,7 +39,7 @@ import { environment } from '../environments/environment';
 import { NavComponent } from './view/nav/nav.component';
 import { HomeComponent } from './view/home/home.component';
 import { FactureComponent } from './view/Facture/facture.component';
-import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane-ticket/plane-ticket.component';
+import { voitureComponent,NewvoitureComponent } from './view/voiture/voiture.component';
 
 
 
@@ -47,13 +47,13 @@ import { PlaneTicketComponent,NewPlaneTicketComponent } from './view/plane-ticke
   declarations: [
     AppComponent,
     ClientComponent,
-    BookingComponent,
+    reservationComponent,
     NavComponent,
     HomeComponent,
     NewClientComponent,
-    NewBookingComponent,
-    PlaneTicketComponent,
-    NewPlaneTicketComponent ,
+    NewreservationComponent,
+    voitureComponent,
+    NewvoitureComponent ,
     FactureComponent,
   ],
   imports: [

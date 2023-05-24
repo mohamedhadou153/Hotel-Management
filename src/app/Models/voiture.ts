@@ -1,6 +1,6 @@
 
 
-export interface PlaneTicket {
+export interface voiture {
     $key:string;
     type:'sedan'|'hatchback'|'supercar' | 'coupe'|'pickup' | 'cabriolet';
     marque: string;

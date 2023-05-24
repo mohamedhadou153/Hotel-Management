@@ -1,7 +1,7 @@
 <h1 mat-dialog-title></h1>
 <!-- <button mat-button [mat-dialog-close]="" cdkFocusInitial><mat-icon>close</mat-icon>></button> -->
 <div mat-dialog-content>
-  <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()"> 
+  <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()"> 
     
 
     <mat-form-field appearance="fill">
@@ -23,7 +23,7 @@
     <mat-form-field appearance="fill">
         <mat-label>Voiture</mat-label>
         <mat-select formControlName="voiture">
-            <mat-option  *ngFor="let voiture of planetickets" [value]="voiture.$key" >{{voiture.marque}} : {{voiture.modele}}</mat-option>
+            <mat-option  *ngFor="let voiture of voitures" [value]="voiture.$key" >{{voiture.marque}} : {{voiture.modele}}</mat-option>
           </mat-select>   
          </mat-form-field>
   
